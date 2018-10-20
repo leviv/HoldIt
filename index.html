@@ -102,20 +102,26 @@
         <h2 class="text-center">Reserve a place in line</h2>
         <br>
 
-          <div class="container">
+          <div class="container" id="hide-on-submit">
             <div class="row">
-              <form>
+              <div class="form">
                 <div class="group">
-                  <input type="text" required>
+                  <input type="text" id="email-form" required>
                   <span class="highlight"></span>
                   <span class="bar"></span>
-                  <label>Name</label>
+                  <label>Email</label>
                 </div>
                 <br>
                 <button type="submit" class="button-submit">Submit</button>
-              </form>
+              </div>
             </div><!-- row -->
           </div><!-- container -->
+
+          <div id="qr-code">
+            <h3>Thanks! Save the QR code to scan in to the restroom</h3>
+            <br>
+            <img src="darren@gmail.com" alt="QR code" id="qr-img">
+          </div>
 
           <p class="text-center" id="plane-form">
             <i class="fas fa-plane-departure"></i>

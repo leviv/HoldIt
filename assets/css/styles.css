@@ -41,6 +41,10 @@ h1, h1 span {
   font-family: "Yeseva One", cursive;
 }
 
+h2 {
+  text-decoration: underline;
+}
+
 .hover {
   background-size: 100% 200%;
   background-position: 0% 0%;
@@ -107,7 +111,7 @@ section#bathrooms .bathroom {
   width: 500px;
   margin: 0 auto;
 }
-section#bathrooms .bathroom h2 {
+section#bathrooms .bathroom h3 {
   text-align: center;
   color: #5d1049;
 }
@@ -125,6 +129,9 @@ section#bathrooms .bathroom .position, section#bathrooms .bathroom .name {
   font-size: 20px;
   display: inline;
 }
+section#bathrooms .bathroom .position {
+  color: #5d1049;
+}
 
 /* ===============================
  * Form styles
@@ -136,9 +143,9 @@ section#form {
   padding: 100px 0 50px 0;
   text-align: center;
 }
-section#form form {
+section#form form, section#form .form {
   background: #fff;
-  padding: 30px 20px 20px 20px;
+  padding: 40px 20px 20px 20px;
   border-radius: 15px;
   -webkit-border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -148,6 +155,10 @@ section#form form {
 section#form #plane-form i {
   font-size: 50px;
   margin-top: 50px;
+}
+
+#qr-code {
+  display: none;
 }
 
 .button-submit {
