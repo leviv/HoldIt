@@ -17,18 +17,8 @@ app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static('assets'));
 
-
-
-
-
-
-
-
-
-
-
-
-
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 app.get('/', (request, response) => {
 
@@ -56,12 +46,9 @@ app.get('/', (request, response) => {
 
 })
 
-
-
-
-
-
-
+app.post('/thank', urlencodedParser, function (req, res){
+  console.log(req.body.myData);
+ });
 
 app.listen(port, (err) => {
   if (err) {

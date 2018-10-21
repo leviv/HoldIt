@@ -16,6 +16,16 @@ $(document).ready(function(){
     });
 });
 
+$(form).submit(function (event) {
+  $.post('http://localhost:3000/thank',   // url
+         { myData: $('#email-form').val() }, // data to be submit
+         function(data, status, jqXHR) {// success callback
+           console.log("yeet");
+          })
+  event.preventDefault();
+});
+
+
 $($('.button-submit')).click(function(){
   var input = $('#email-form').val();
 
