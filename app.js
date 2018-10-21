@@ -75,7 +75,6 @@ app.post('/thank', urlencodedParser, function (req, res){
           // console.log("Found the following records");
           // console.log(result);
           // callback(result);
-          array.push(req.body.myData);
           // add email to the queue
           dbo.collection("flight").updateOne({_id: id}, {$push: {queue: req.body.myData}}, function(err, record) {
             if(err)
@@ -87,7 +86,6 @@ app.post('/thank', urlencodedParser, function (req, res){
          });
 
     });
-  });
 
 });
 
