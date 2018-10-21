@@ -48,6 +48,7 @@ app.get('/', (request, response) => {
 
 app.post('/thank', urlencodedParser, function (req, res){
   console.log(req.body.myData);
+  // TODO: Update the queue
  });
 
 app.listen(port, (err) => {
