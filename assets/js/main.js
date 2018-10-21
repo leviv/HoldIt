@@ -32,10 +32,10 @@ $($('.button-submit')).click(function(){
   if (!validateEmail(input)) {
     alert("Email is not valid");
   } else {
-    var siteName = "file:///Users/levivillarreal/Desktop/HoldIt/post.html?email={";
+    var siteName = "file:///Users/levivillarreal/Desktop/HoldIt/post/";
     $('#hide-on-submit').hide();
     $('#qr-code').show();
-    var imageSrc = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + siteName + input + "}";
+    var imageSrc = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + siteName + input;
     $('#qr-img').attr('src',imageSrc);
   }
 });

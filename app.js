@@ -3,7 +3,6 @@ const app = express()
 const port = 3000
 
 
-
 // index.js
 const path = require('path')
 const exphbs = require('express-handlebars')
@@ -19,6 +18,8 @@ app.use(express.static('assets'));
 
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
+var router = express.Router();
+
 
 app.get('/', (request, response) => {
 
@@ -46,10 +47,23 @@ app.get('/', (request, response) => {
 
 })
 
+// Whenever the form is submitted by User
+// Email is stored in req.body.myData
 app.post('/thank', urlencodedParser, function (req, res){
   console.log(req.body.myData);
   // TODO: Update the queue
- });
+});
+
+// Whenever you go to the url from qr code
+app.get('/post/:id', async function (req, res) {
+
+   // Retrieve the tag from our URL path
+   console.log(req.params.id);
+
+   res.render('home', {
+     name: 'John'
+   })
+});
 
 app.listen(port, (err) => {
   if (err) {
