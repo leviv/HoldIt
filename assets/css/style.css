@@ -1,0 +1,286 @@
+@import "animate.css";
+@import "bootstrap.min.css";
+@import "bootstrap-theme.min.css";
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-family: "Dosis", sans-serif;
+  background-color: #FAF6F8;
+}
+
+body, html, .row {
+  height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+hr {
+  border-width: 2px;
+  border-color: #fff;
+}
+
+/* ===============================
+ * Typography
+ * =============================== */
+h1, h1 span {
+  font-family: "Yeseva One", cursive;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+.hover {
+  background-size: 100% 200%;
+  background-position: 0% 0%;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, #fff 50%);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  text-decoration: none;
+  overflow: hidden;
+  color: #fff;
+}
+.hover:hover {
+  color: #5d1049;
+  background-position: 0% -195%;
+  text-decoration: none;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, #5d1049 50%);
+}
+
+/* ===============================
+ * Home Page
+ * =============================== */
+html {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+#nav {
+  background-color: #5d1049;
+}
+#nav p {
+  display: inline;
+  padding-left: 5px;
+  color: #fff;
+}
+
+section#bathrooms {
+  width: 100%;
+  overflow: hidden;
+}
+section#bathrooms #bathrooms-con {
+  margin: 100px 0;
+}
+section#bathrooms #plane-bg {
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: -75px;
+  color: rgba(93, 16, 73, 0.2);
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  padding: 0 !important;
+  margin: 0 !important;
+  left: -300px;
+  font-size: 600px;
+}
+section#bathrooms .bathroom {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  width: 500px;
+  margin: 0 auto;
+}
+section#bathrooms .bathroom h3 {
+  text-align: center;
+  color: #5d1049;
+}
+section#bathrooms .bathroom ul {
+  padding-left: 0;
+}
+section#bathrooms .bathroom li {
+  border-bottom: 1px solid #5d1049;
+  padding: 15px 0;
+}
+section#bathrooms .bathroom li:last-child {
+  border-bottom: 0px solid #5d1049;
+}
+section#bathrooms .bathroom .position, section#bathrooms .bathroom .name {
+  font-size: 20px;
+  display: inline;
+}
+section#bathrooms .bathroom .position {
+  color: #5d1049;
+}
+
+/* ===============================
+ * Form styles
+ * =============================== */
+section#form {
+  width: 100%;
+  background-color: #5d1049;
+  color: #fff;
+  padding: 100px 0 50px 0;
+  text-align: center;
+}
+section#form form, section#form .form {
+  background: #fff;
+  padding: 40px 20px 20px 20px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  width: 500px;
+  margin: 0 auto;
+}
+section#form #plane-form i {
+  font-size: 50px;
+  margin-top: 50px;
+}
+
+#qr-code {
+  display: none;
+}
+
+.button-submit {
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  padding: 5px 15px;
+  border: 2px solid #5d1049;
+  background-color: #fff;
+  color: #5d1049;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.button-submit:hover {
+  background-color: #5d1049;
+  color: #fff;
+}
+
+.group {
+  position: relative;
+  margin-bottom: 45px;
+  display: inline-block;
+}
+
+input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+input:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #5d1049;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: 300px;
+}
+.bar:before, .bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5d1049;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5d1049;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5d1049;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #5d1049;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
