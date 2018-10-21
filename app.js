@@ -26,6 +26,8 @@ app.get('/', (request, response) => {
 
   var MongoClient = require('mongodb').MongoClient;
   var databaseUrl = "mongodb://stephoknee:mangoes123@ds237563.mlab.com:37563/heroku_r7mpww3s";
+  var array = [];
+  var i;
   // Connect to the db
   MongoClient.connect(databaseUrl , function(err, db) {
        if(!err) {
@@ -33,22 +35,20 @@ app.get('/', (request, response) => {
            // in variable db is your db connection
         }
 
+        var ObjectId = require('mongodb').ObjectId;
         var dbo = db.db("heroku_r7mpww3s");
-        var query = { gender: "Male" };
-        dbo.collection("user").find(query).toArray(function(err, result) {
+        var id = new ObjectId("5bcb8ad9780291346ff05d47");
+        var query = {_id: id};
+        dbo.collection("flight").find(query).toArray(function(err, result) {
           if (err) throw err;
-          //response.send(result)
-          // assert.equal(err, null);
-          // console.log("Found the following records");
-          // console.log(result);
-          // callback(result);
-        db.close();
-    });
-  });
+          array = result[0].queue;
+          db.close();
+          response.render('home', {
+            name: array
+          })
+        });
 
-  response.render('home', {
-    name: 'John'
-  })
+  });
 
 })
 
@@ -94,13 +94,33 @@ app.post('/thank', urlencodedParser, function (req, res){
 app.get('/post/:id', async function (req, res) {
 
    // Retrieve the tag from our URL path
-   console.log(req.params.id);
+  // console.log(req.params.id);
 
    // TODO: Update the queue
-
+   var MongoClient = require('mongodb').MongoClient;
+   var databaseUrl = "mongodb://stephoknee:mangoes123@ds237563.mlab.com:37563/heroku_r7mpww3s";
+   var array = [];
+   // Connect to the db
+   MongoClient.connect(databaseUrl , function(err, db) {
+        if(!err) {
+            console.log("We are connected here");
+            // in variable db is your db connection
+         }
+         var ObjectId = require('mongodb').ObjectId;
+         var dbo = db.db("heroku_r7mpww3s");
+         var id = new ObjectId("5bcb8ad9780291346ff05d47");
+         var query = {_id: id};
+         dbo.collection("flight").updateOne(query, {$pop: {queue:-1}});
+         dbo.collection("flight").find(query).toArray(function(err, result) {
+           if (err) throw err;
+           array = result[0].queue;
+           console.log(result[0].queue);
+           db.close();
+         });
    res.render('home', {
-     name: 'John'
+     name: array
    })
+ });
 });
 
 app.listen(port, (err) => {
