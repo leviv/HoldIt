@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const assert = require('assert')
 
 
 
@@ -34,8 +35,12 @@ app.get('/', (request, response) => {
         var dbo = db.db("heroku_r7mpww3s");
         var query = { gender: "Male" };
         dbo.collection("user").find(query).toArray(function(err, result) {
-        if (err) throw err;
-        //response.send(result)
+          if (err) throw err;
+          //response.send(result)
+          // assert.equal(err, null);
+          // console.log("Found the following records");
+          // console.log(result);
+          // callback(result);
         db.close();
     });
   });
@@ -48,8 +53,40 @@ app.get('/', (request, response) => {
 
 app.post('/thank', urlencodedParser, function (req, res){
   console.log(req.body.myData);
-  // TODO: Update the queue
- });
+  var MongoClient = require('mongodb').MongoClient;
+  var databaseUrl = "mongodb://stephoknee:mangoes123@ds237563.mlab.com:37563/heroku_r7mpww3s";
+  // Connect to the db
+  MongoClient.connect(databaseUrl , function(err, db) {
+       if(!err) {
+           console.log("We are connected");
+           // in variable db is your db connection
+        }
+        var ObjectId = require('mongodb').ObjectId;
+        var dbo = db.db("heroku_r7mpww3s");
+        var id = new ObjectId("5bcb8ad9780291346ff05d47");
+        var query = {_id: id};
+        dbo.collection("flight").find(query).toArray(function(err, result) {
+          if (err) throw err;
+          //response.send(result)
+          // assert.equal(err, null);
+          // console.log("Found the following records");
+          // console.log(result);
+          // callback(result);
+          array.push(req.body.myData);
+          // add email to the queue
+          dbo.collection("flight").updateOne({_id: id}, {$push: {queue: req.body.myData}}, function(err, record) {
+            if(err)
+              throw err;
+            else
+              console.log("yes");
+            db.close();
+          });
+          // TODO: Update the queue
+         });
+
+    });
+  });
+
 
 app.listen(port, (err) => {
   if (err) {
