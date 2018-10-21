@@ -55,10 +55,13 @@ app.post('/thank', urlencodedParser, function (req, res){
 });
 
 // Whenever you go to the url from qr code
+// Email is stored in req.params.id
 app.get('/post/:id', async function (req, res) {
 
    // Retrieve the tag from our URL path
    console.log(req.params.id);
+
+   // TODO: Update the queue
 
    res.render('home', {
      name: 'John'
