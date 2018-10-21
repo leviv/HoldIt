@@ -116,10 +116,10 @@ app.get('/post/:id', async function (req, res) {
            array = result[0].queue;
            console.log(result[0].queue);
            db.close();
+           res.render('home', {
+             name: array
+           })
          });
-   res.render('home', {
-     name: array
-   })
  });
 });
 
