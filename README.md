@@ -35,7 +35,8 @@ To serve the site locally
 node app.js
 ```
 
-Then, open the url https://localhost:3000 and start making changes!
+Then, open the url http://localhost:3000 and start making changes!
+
 ## Development
 To compile SASS changes to make them take effect
 ```bash
