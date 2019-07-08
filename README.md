@@ -19,6 +19,7 @@ npm install -g sass
 Install SASS using homebrew
 ```bash
 brew install sass/sass/sass
+```
 
 ## Getting started
 To clone the repository to your local machine
